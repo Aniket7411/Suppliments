@@ -86,9 +86,23 @@ function App() {
                 }
               />
 
-              {/* Auth Routes without Layout */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              {/* Auth Routes with Layout */}
+              <Route
+                path="/login"
+                element={
+                  <Layout>
+                    <Login />
+                  </Layout>
+                }
+              />
+              <Route
+                path="/register"
+                element={
+                  <Layout>
+                    <Register />
+                  </Layout>
+                }
+              />
 
               {/* Protected Buyer Routes with Layout */}
               <Route
