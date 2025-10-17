@@ -130,7 +130,8 @@ const Chat = () => {
                     className="bg-gray-900 rounded-xl p-6 border border-gray-800 mb-8"
                 >
                     <h2 className="text-white text-xl font-semibold mb-4">Post a Message</h2>
-                    <form onSubmit={handleSubmitMessage} className="flex gap-3">
+                    <form onSubmit={handleSubmitMessage} className="flex flex-wrap gap-3">
+
                         <input
                             type="text"
                             value={newMessage}
