@@ -208,10 +208,10 @@ const Addresses = () => {
                                 className={`bg-gray-900 rounded-xl p-6 border-2 ${address.isPrimary ? 'border-cyan-500' : 'border-gray-800'
                                     }`}
                             >
-                                <div className="flex justify-between items-start">
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-3 mb-3">
-                                            <CiLocationOn className="text-cyan-400 text-2xl" />
+                                <div className="flex flex-wrap justify-between items-start gap-4">
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center flex-wrap gap-3 mb-3">
+                                            <CiLocationOn className="text-cyan-400 text-2xl flex-shrink-0" />
                                             {address.isPrimary && (
                                                 <span className="bg-cyan-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
                                                     PRIMARY
@@ -225,11 +225,11 @@ const Addresses = () => {
                                     </div>
 
                                     {/* Actions */}
-                                    <div className="flex gap-2">
+                                    <div className="flex flex-wrap gap-2 items-start">
                                         {!address.isPrimary && (
                                             <button
                                                 onClick={() => handleSetPrimary(address._id)}
-                                                className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm"
+                                                className="text-cyan-400 hover:text-cyan-300 transition-colors text-sm whitespace-nowrap"
                                             >
                                                 Set as Primary
                                             </button>

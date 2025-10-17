@@ -194,18 +194,18 @@ const Dashboard = () => {
                                 lowStockProducts.slice(0, 5).map((product) => (
                                     <div
                                         key={product._id}
-                                        className="bg-gray-800 p-4 rounded-lg border border-gray-700 flex items-center gap-4"
+                                        className="bg-gray-800 p-4 rounded-lg border border-gray-700 flex flex-wrap items-center gap-4"
                                     >
                                         <img
                                             src={product.image}
                                             alt={product.name}
-                                            className="w-16 h-16 object-cover rounded-lg"
+                                            className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
                                         />
-                                        <div className="flex-1">
-                                            <p className="text-white font-semibold">{product.name}</p>
+                                        <div className="flex-1 min-w-0">
+                                            <p className="text-white font-semibold truncate">{product.name}</p>
                                             <p className="text-gray-400 text-sm">{product.category}</p>
                                         </div>
-                                        <div className="text-right">
+                                        <div className="text-right flex-shrink-0">
                                             <p className="text-orange-400 font-bold">{product.stock}</p>
                                             <p className="text-gray-500 text-xs">in stock</p>
                                         </div>

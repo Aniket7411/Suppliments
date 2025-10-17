@@ -79,30 +79,30 @@ const Cart = () => {
                                     transition={{ delay: index * 0.1 }}
                                     className="bg-gray-900 rounded-xl p-6 border border-gray-800"
                                 >
-                                    <div className="flex gap-6">
+                                    <div className="flex flex-wrap gap-4 md:gap-6">
                                         {/* Image */}
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            className="w-24 h-24 object-cover rounded-lg"
+                                            className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg flex-shrink-0"
                                         />
 
                                         {/* Details */}
-                                        <div className="flex-1">
+                                        <div className="flex-1 min-w-0">
                                             <Link to={`/product/${item._id}`}>
-                                                <h3 className="text-white font-semibold text-lg mb-1 hover:text-cyan-400 transition-colors">
+                                                <h3 className="text-white font-semibold text-base sm:text-lg mb-1 hover:text-cyan-400 transition-colors truncate">
                                                     {item.name}
                                                 </h3>
                                             </Link>
                                             <p className="text-gray-400 text-sm mb-2">{item.category}</p>
-                                            <p className="text-cyan-400 font-bold text-xl">₹{item.price}</p>
+                                            <p className="text-cyan-400 font-bold text-lg sm:text-xl">₹{item.price}</p>
                                         </div>
 
                                         {/* Quantity Controls */}
-                                        <div className="flex flex-col items-end justify-between">
+                                        <div className="flex flex-col sm:flex-col items-start sm:items-end justify-between w-full sm:w-auto gap-3">
                                             <button
                                                 onClick={() => removeFromCart(item._id)}
-                                                className="text-red-400 hover:text-red-300 transition-colors"
+                                                className="text-red-400 hover:text-red-300 transition-colors self-end sm:self-auto"
                                             >
                                                 <CiTrash className="text-2xl" />
                                             </button>

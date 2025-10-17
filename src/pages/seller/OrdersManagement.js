@@ -94,12 +94,12 @@ const OrdersManagement = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <div className="flex gap-2">
+                        <div className="flex flex-wrap gap-2">
                             {statusOptions.map((option) => (
                                 <button
                                     key={option.value}
                                     onClick={() => setFilterStatus(option.value)}
-                                    className={`px-4 py-3 rounded-xl font-medium transition-all ${filterStatus === option.value
+                                    className={`px-4 py-3 rounded-xl font-medium transition-all whitespace-nowrap ${filterStatus === option.value
                                             ? 'bg-cyan-500 text-white'
                                             : 'bg-gray-900 text-gray-400 border border-gray-800 hover:bg-gray-800'
                                         }`}
@@ -125,8 +125,8 @@ const OrdersManagement = () => {
                                 <div className="flex flex-col lg:flex-row gap-6">
                                     {/* Order Info */}
                                     <div className="flex-1">
-                                        <div className="flex items-start justify-between mb-4">
-                                            <div>
+                                        <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                                            <div className="flex-1 min-w-0">
                                                 <h3 className="text-white text-xl font-bold mb-2">
                                                     Order #{order._id}
                                                 </h3>
@@ -134,7 +134,7 @@ const OrdersManagement = () => {
                                                     Placed on {new Date(order.orderDate).toLocaleString()}
                                                 </p>
                                             </div>
-                                            <span className={`px-4 py-2 rounded-full text-sm font-semibold ${getStatusColor(order.status)}`}>
+                                            <span className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap flex-shrink-0 ${getStatusColor(order.status)}`}>
                                                 {order.status.toUpperCase()}
                                             </span>
                                         </div>
@@ -146,12 +146,12 @@ const OrdersManagement = () => {
                                                 {order.items.map((item) => (
                                                     <div
                                                         key={item.productId}
-                                                        className="flex justify-between items-center text-sm"
+                                                        className="flex flex-wrap justify-between items-center gap-2 text-sm"
                                                     >
-                                                        <span className="text-gray-300">
+                                                        <span className="text-gray-300 flex-1 min-w-0">
                                                             {item.name} x {item.quantity}
                                                         </span>
-                                                        <span className="text-cyan-400 font-semibold">
+                                                        <span className="text-cyan-400 font-semibold flex-shrink-0">
                                                             ₹{item.price * item.quantity}
                                                         </span>
                                                     </div>

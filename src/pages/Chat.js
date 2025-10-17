@@ -162,21 +162,21 @@ const Chat = () => {
                                 className="bg-gray-900 rounded-xl p-6 border border-gray-800"
                             >
                                 {/* Main Message */}
-                                <div className="flex gap-4 mb-4">
+                                <div className="flex flex-wrap gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                                         <span className="text-white font-bold text-lg">
                                             {chat.userName.charAt(0).toUpperCase()}
                                         </span>
                                     </div>
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-3 mb-2">
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex flex-wrap items-center gap-3 mb-2">
                                             <h3 className="text-white font-semibold">{chat.userName}</h3>
                                             <span className="text-gray-500 text-sm">
                                                 {new Date(chat.timestamp).toLocaleDateString()} at{' '}
                                                 {new Date(chat.timestamp).toLocaleTimeString()}
                                             </span>
                                         </div>
-                                        <p className="text-gray-300 leading-relaxed">{chat.message}</p>
+                                        <p className="text-gray-300 leading-relaxed break-words">{chat.message}</p>
                                     </div>
                                 </div>
 
@@ -210,19 +210,19 @@ const Chat = () => {
                                 {replyTo === chat._id ? (
                                     <form
                                         onSubmit={(e) => handleSubmitReply(e, chat._id)}
-                                        className="ml-16 mt-4 flex gap-2"
+                                        className="ml-0 sm:ml-16 mt-4 flex flex-wrap gap-2"
                                     >
                                         <input
                                             type="text"
                                             value={replyMessage}
                                             onChange={(e) => setReplyMessage(e.target.value)}
                                             placeholder="Type your reply..."
-                                            className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 focus:border-cyan-500 focus:outline-none text-sm"
+                                            className="flex-1 min-w-[200px] bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 focus:border-cyan-500 focus:outline-none text-sm"
                                             autoFocus
                                         />
                                         <button
                                             type="submit"
-                                            className="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm"
+                                            className="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition-colors text-sm whitespace-nowrap"
                                         >
                                             Reply
                                         </button>
@@ -232,7 +232,7 @@ const Chat = () => {
                                                 setReplyTo(null);
                                                 setReplyMessage('');
                                             }}
-                                            className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm"
+                                            className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors text-sm whitespace-nowrap"
                                         >
                                             Cancel
                                         </button>
@@ -240,7 +240,7 @@ const Chat = () => {
                                 ) : (
                                     <button
                                         onClick={() => setReplyTo(chat._id)}
-                                        className="ml-16 mt-4 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-semibold"
+                                        className="ml-0 sm:ml-16 mt-4 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-semibold"
                                     >
                                         Reply
                                     </button>

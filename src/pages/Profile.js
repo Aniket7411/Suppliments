@@ -207,11 +207,11 @@ const Profile = () => {
                                             </div>
                                             <div className="space-y-2 mb-3">
                                                 {order.items.map((item) => (
-                                                    <div key={item.productId} className="flex justify-between text-gray-400 text-sm">
-                                                        <span>
+                                                    <div key={item.productId} className="flex flex-wrap justify-between gap-2 text-gray-400 text-sm">
+                                                        <span className="flex-1 min-w-0">
                                                             {item.name} x {item.quantity}
                                                         </span>
-                                                        <span>₹{item.price * item.quantity}</span>
+                                                        <span className="flex-shrink-0">₹{item.price * item.quantity}</span>
                                                     </div>
                                                 ))}
                                             </div>

@@ -208,13 +208,13 @@ const ProductDetail = () => {
 
                         {/* Action Buttons - Only for buyers */}
                         {!isSeller && (
-                            <div className="flex gap-4 mb-8">
+                            <div className="flex flex-wrap gap-4 mb-8">
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={handleAddToCart}
                                     disabled={product.stock === 0}
-                                    className="flex-1 bg-cyan-500 text-white py-4 rounded-xl font-semibold hover:bg-cyan-600 transition-colors disabled:bg-gray-700 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    className="flex-1 min-w-[200px] bg-cyan-500 text-white py-4 rounded-xl font-semibold hover:bg-cyan-600 transition-colors disabled:bg-gray-700 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
                                     <CiShoppingCart className="text-2xl" />
                                     Add to Cart
@@ -223,7 +223,7 @@ const ProductDetail = () => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                     onClick={handleWishlistToggle}
-                                    className={`p-4 rounded-xl border transition-all ${isInWishlist(product._id)
+                                    className={`p-4 rounded-xl border transition-all flex-shrink-0 ${isInWishlist(product._id)
                                             ? 'bg-red-500 border-red-500 text-white'
                                             : 'bg-gray-800 border-gray-700 text-white hover:border-cyan-500'
                                         }`}
